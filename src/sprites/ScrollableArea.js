@@ -13,12 +13,13 @@ export default class extends Phaser.Group {
     this._w = w
     this._h = h
 
-    this.maskGraphics = game.add.graphics(x, y)
-    this.maskGraphics.beginFill(0x000000)
-    this.maskGraphics.drawRect(0, 0, w, h)
-    this.maskGraphics.alpha = 0.001
-    this.maskGraphics.inputEnabled = true
-    this.mask = this.maskGraphics
+    // this.maskGraphics = game.add.graphics(x, y)
+    // this.maskGraphics.beginFill(0x000000)
+    // this.maskGraphics.drawRect(0, 0, w, h)
+    // this.maskGraphics.alpha = 0.001
+    // this.maskGraphics.inputEnabled = true
+    // this.mask = this.maskGraphics
+    this.maskGraphics = {}
 
     this.dragging = false
     this.pressedDown = false
@@ -100,9 +101,9 @@ export default class extends Phaser.Group {
    * @method ScrollableArea#start
    */
   start () {
-    this.game.input.onDown.add(this.beginMove, this)
+    // this.game.input.onDown.add(this.beginMove, this)
     this.callbackID = this.game.input.addMoveCallback(this.moveCanvas, this)
-    this.game.input.onUp.add(this.endMove, this)
+    // this.game.input.onUp.add(this.endMove, this)
     this.game.input.mouse.mouseWheelCallback = this.mouseWheel.bind(this)
   }
 

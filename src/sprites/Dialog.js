@@ -92,30 +92,36 @@ export default class extends Phaser.Sprite {
 
       // highlighed part of the string
       if (string.middle) {
-        const highlightedText = this.game.make.text(this.x + 55 + dx, this.dialogHeight, string.middle, {
+        // const highlightedText = this.game.make.text(this.x + 55 + dx, this.dialogHeight, string.middle, {
+        //   font: '18px Arial',
+        //   fill: '#16bee7',
+        //   backgroundColor: '#185965'
+        // })
+        // highlightedText.inputEnabled = true
+        // highlightedText.stepNumber = this.currentStepIndex
+
+        // highlightedText.events.onInputUp.add(() => {
+        //   if (!this.isDragReleased[highlightedText.stepNumber]) {
+        //     this.createDragText(highlightedText)
+        //   }
+        // })
+        // this.scroller.addChild(highlightedText)
+
+        const highlightedText2 = this.game.make.text(this.x + 55 + dx, this.dialogHeight, string.middle, {
           font: '18px Arial',
           fill: '#16bee7',
           backgroundColor: '#185965'
         })
-        highlightedText.inputEnabled = true
-        highlightedText.stepNumber = this.currentStepIndex
+        highlightedText2.inputEnabled = true
+        highlightedText2.input.useHandCursor = true
+        highlightedText2.input.enableDrag(true)
+        highlightedText2.stepNumber = this.currentStepIndex
+        highlightedText2.events.onDragStart.add(() => {
+          console.log('yay2!')
+        })
 
-        highlightedText.events.onInputUp.add(() => {
-          if (!this.isDragReleased[highlightedText.stepNumber]) {
-            this.createDragText(highlightedText)
-          }
-        })
-        highlightedText.events.onInputDown.add(() => {
-          console.log('Input Down Detected')
-        })
-        highlightedText.events.onInputOver.add(() => {
-          console.log('Input Over Detected')
-        })
-        highlightedText.events.onInputOut.add(() => {
-          console.log('Input Out Detected')
-        })
-        this.scroller.addChild(highlightedText)
-        dx += highlightedText.getBounds().width
+        this.scroller.addChild(highlightedText2)
+        dx += highlightedText2.getBounds().width
       }
 
       // the rest of the string
@@ -162,6 +168,9 @@ export default class extends Phaser.Sprite {
     highDragText.input.enableDrag(true)
     highDragText.anchor.setTo(0.5, 0.5)
     highDragText.setShadow(0, 0, 'rgb(0, 0, 0)', 4)
+    highDragText.events.onDragStart.add(() => {
+      console.log('yay!')
+    })
     highDragText.events.onDragStop.add(() => {
       // check if it's in the yes or no zone
       this.dragStopHandler(highDragText, highlightedText)
