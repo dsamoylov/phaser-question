@@ -143,7 +143,7 @@ export default class extends Phaser.Sprite {
       this.game.input.y,
       this.dialogSteps[highlightedText.stepNumber].dragText,
       {
-        font: '14px Exo2',
+        font: '14px Arial',
         fill: '#bfedf5'
       }
     )
