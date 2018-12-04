@@ -15,10 +15,7 @@ var definePlugin = new webpack.DefinePlugin({
 
 module.exports = {
   entry: {
-    app: [
-      'babel-polyfill',
-      path.resolve(__dirname, 'src/main.js')
-    ],
+    app: ['babel-polyfill', path.resolve(__dirname, 'src/main.js')],
     vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
   },
   devtool: 'cheap-source-map',
@@ -31,7 +28,10 @@ module.exports = {
   watch: true,
   plugins: [
     definePlugin,
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor' /* chunkName= */,
+      filename: 'vendor.bundle.js' /* filename= */
+    }),
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: './src/index.html',
@@ -72,9 +72,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'phaser': phaser,
-      'pixi': pixi,
-      'p2': p2
+      phaser: phaser,
+      pixi: pixi,
+      p2: p2
     }
   }
 }
