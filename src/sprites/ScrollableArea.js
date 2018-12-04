@@ -110,11 +110,13 @@ export default class extends Phaser.Group {
    * Event triggered when a pointer is pressed down, resets the value of variables.
    */
   beginMove () {
+    console.log('beginMove()')
     if (this.allowScrollStopOnTouch && this.scrollTween) {
       this.scrollTween.pause()
     }
 
     if (this.maskGraphics.getBounds().contains(this.game.input.x, this.game.input.y)) {
+      console.log('clicked inside mask graphics')
       this.startedInside = true
 
       this.startX = this.inputX = this.game.input.x

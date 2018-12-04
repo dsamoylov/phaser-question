@@ -105,6 +105,15 @@ export default class extends Phaser.Sprite {
             this.createDragText(highlightedText)
           }
         })
+        highlightedText.events.onInputDown.add(() => {
+          console.log('Input Down Detected')
+        })
+        highlightedText.events.onInputOver.add(() => {
+          console.log('Input Over Detected')
+        })
+        highlightedText.events.onInputOut.add(() => {
+          console.log('Input Out Detected')
+        })
         this.scroller.addChild(highlightedText)
         dx += highlightedText.getBounds().width
       }
