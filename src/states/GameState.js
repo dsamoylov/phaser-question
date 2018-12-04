@@ -6,7 +6,7 @@ export default class extends Phaser.State {
   preload () {}
 
   create () {
-    this.computer = this.game.add.sprite(425, 10, 'case_computer_bg')
+    this.computer = this.game.add.sprite(425, 10, 'main_computer_bg')
     this.game.add.existing(this.computer)
     this.dialogSteps = [
       {

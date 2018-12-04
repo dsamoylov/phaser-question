@@ -11,9 +11,8 @@ export default class extends Phaser.State {
 
     this.load.setPreloadSprite(this.loaderBar)
 
-    this.load.image('case_dialog_bg', 'assets/images/case/dialog_bg.png')
-    this.load.image('case_computer_bg', 'assets/images/case/computer_bg.png')
-    this.load.image('case_computer_transparent', 'assets/images/case/computer_transparent.png')
+    this.load.image('main_dialog_bg', 'assets/images/main/dialog_bg.png')
+    this.load.image('main_computer_bg', 'assets/images/main/computer_bg.png')
 
     this.load.image('scroll_line', 'assets/images/scroll/scroll_line.png')
     this.load.image('scroll_up', 'assets/images/scroll/scroll_up.png')

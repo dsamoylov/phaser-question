@@ -9,7 +9,7 @@ export default class extends Phaser.Sprite {
     this.dialogSteps = dialogSteps
     this.dialogHeight = 0
     this.currentStepIndex = -1
-    this.bg = this.game.add.sprite(x, y, 'case_dialog_bg')
+    this.bg = this.game.add.sprite(x, y, 'main_dialog_bg')
 
     this.scroller = game.add.existing(
       new ScrollableArea(game, 0, y + 35, 380, 263, {}, this.mouseWheelHandler.bind(this))
